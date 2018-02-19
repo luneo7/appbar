@@ -1,0 +1,970 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url(MaterialIcons-Regular.woff2) format('woff2'),
+       url(MaterialIcons-Regular.woff) format('woff'),
+       url(MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+/* Animation */
+
+@-webkit-keyframes app-bar-anim {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes app-bar-anim {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Serpro Launcher */
+
+.app-bar {
+	position: relative;
+	display: inline-block;
+	text-align: center;
+    line-height: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+	color:#6d6d6d;
+}
+
+.app-bar-float-right {
+    float: right;
+}
+
+.app-bar-float-left {
+    float: left;
+}
+
+.app-bar-topbar {
+    /*position: absolute;*/
+    top: 0;
+    width: 100%;
+    margin: 0px;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.app-bar-fixed {
+    position: fixed;
+}
+
+.app-bar-topbar .sb-bar-container {
+    float: right;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.app-bar .sb-bar-container {
+	display: table;
+	vertical-align: middle;
+}
+
+.app-bar .sb-launcher-button a,
+.app-bar .sb-notifications-button a,
+.app-bar .sb-account-button a{
+	color:#6d6d6d;
+	outline: medium none;
+}
+
+.app-bar .sb-launcher-button a:hover,
+.app-bar .sb-launcher-button a:active,
+.app-bar .sb-launcher-button a:focus,
+.app-bar .sb-notifications-button a:hover,
+.app-bar .sb-notifications-button a:active,
+.app-bar .sb-notifications-button a:focus,
+.app-bar .sb-account-button a:hover,
+.app-bar .sb-account-button a:active,
+.app-bar .sb-account-button a:focus
+  {
+	color:#000;
+	outline: medium none;
+}
+
+.app-bar .material-icons {
+	font-size: 30px;
+}
+
+.app-bar .sb-arrow-shadow {
+	border-color: transparent transparent rgba(0, 0, 0, 0.2);
+	border-style: dashed dashed solid;
+	border-width: 0px 8.5px 8.5px;
+	position: absolute;
+	left: 12.5px;
+	z-index: 1;
+	height: 0px;
+	width: 0px;
+	top: 36px;
+}
+
+.app-bar .sb-arrow-back {
+	border-color: transparent transparent #FFF;
+	border-style: dashed dashed solid;
+	border-width: 0px 8.5px 8.5px;
+	position: absolute;
+	left: 12.5px;
+	top: 37px;
+	z-index: 1;
+	height: 0px;
+	width: 0px;
+}
+
+.app-bar .sb-app-launcher,
+.app-bar .sb-account-panel,
+.app-bar .sb-notifications-drawer {
+	/*position: absolute;
+	left: 84px;
+	top: 40px;*/
+
+	background: #FFF none repeat scroll 0% 0%;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	color: #404040;
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+	outline: medium none;
+	overflow-y: auto;
+	overflow-x: hidden;
+	position: absolute;
+	right: 0px;
+	top: 44px;
+	border-radius: 2px;
+	-moz-user-select: text;
+	height: 190px;
+	margin-bottom: 30px;
+	font-size: 13px;
+
+}
+
+
+.app-bar .sb-app-launcher,
+.app-bar .sb-account-panel,
+.app-bar .sb-notifications-drawer,
+.app-bar .sb-arrow-back,
+.app-bar .sb-arrow-shadow {
+	display: none;
+	opacity: 0;
+	-webkit-transition: opacity .2s ease-in-out, -webkit-transform .2s ease-in-out;
+	transition: opacity .3s ease-in-out, -webkit-transform .2s ease-in-out;
+	transition: transform .2s ease-in-out, opacity .2s ease-in-out;
+	transition: transform .2s ease-in-out, opacity .2s ease-in-out, -webkit-transform .2s ease-in-out;
+}
+
+.app-bar .sb-notifications-drawer {
+	min-width: 360px;
+	text-align: left;
+    list-style: none;
+	height: auto;
+}
+
+.app-bar .sb-notifications-drawer .sb-notifications-top {
+	padding: 0 16px;
+    border-bottom: 1px solid #e5e5e5;
+    /* padding: 10px 0; */
+    line-height: 40px;
+    height: 40px;
+    text-align: center;
+}
+
+.app-bar .sb-notifications-drawer .sb-notifications-bottom a:hover,
+.app-bar .sb-notifications-drawer .sb-notifications-bottom a:focus {
+	color: #000;
+}
+
+.app-bar .sb-notifications-drawer .sb-notifications-bottom a {
+	line-height: 40px;
+	text-align: center;
+	display: block;
+	background: #f5f5f5;
+	cursor: pointer;
+	height: 40px;
+	text-decoration: none;
+	color: #282828;
+	outline: none;
+	border-top: 1px solid #e5e5e5;
+}
+
+.app-bar .sb-notifications-drawer .sb-notifications-scrollpane {
+    overflow-y: auto;
+    max-height: 186px;
+}
+
+.app-bar .sb-notifications-drawer .sb-notifications-scrollpane .sb-notifications-list {
+	padding-left: 0;
+	outline: 0;
+    list-style: none;
+}
+
+.app-bar .sb-notifications-drawer .sb-notifications-scrollpane .sb-notifications-list > li {
+    min-height: 48px;
+    /*padding: 8px 4px;*/
+    box-sizing: border-box;
+	/*border-bottom: 1px solid #e5e5e5;*/
+    position: relative;
+	margin-right: 16px;
+	/*margin-left: 64px;*/
+	margin-left: 16px;
+	margin-bottom: 7px;
+}
+
+.app-bar .sb-app-launcher a {
+	color: #404040;
+}
+
+.app-bar .sb-app-launcher .sb-second-set {
+	margin: 10px auto 0;
+	padding: 10px;
+    width: 178px;
+}
+
+.app-bar .sb-app-launcher a:hover,
+.app-bar .sb-app-launcher a:focus {
+	color: #000;
+}
+
+.app-bar .sb-notifications-drawer .sb-notifications-scrollpane .sb-notifications-list>li>a {
+	text-decoration: none;
+	color: #404040;
+	display: table;
+	width: 100%;
+	border-radius: 2px;
+	border: 1px solid transparent;
+	box-shadow: 0px 0px 3px 0px rgba(119, 119, 119, 0.7);
+	-moz-box-shadow: 0px 0px 3px 0px rgba(119, 119, 119, 0.7);
+	-webkit-box-shadow: 0px 0px 3px 0px rgba(119, 119, 119, 0.7);
+	outline: medium none;
+	padding: 4px 0px;
+}
+
+
+.app-bar .sb-notifications-drawer .sb-notifications-scrollpane .sb-notifications-list>li>a:focus,
+.app-bar .sb-notifications-drawer .sb-notifications-scrollpane .sb-notifications-list>li>a:hover {
+    color: #000;
+    text-decoration: none;
+	background-color: #f5f5f5;
+	/*border: 1px solid rgba(0, 0, 0, 0.2);*/
+}
+
+.app-bar .sb-notifications-drawer .sb-notifications-scrollpane .sb-notifications-list li:hover .sb-notification-left {
+	background-color: #f5f5f5;
+}
+
+.app-bar .sb-notifications-drawer .sb-notifications-scrollpane .sb-notifications-list .sb-notification-left {
+	/*position: absolute;
+    left: -48px;
+    top: -1px;
+    bottom: -1px;*/
+    width: 48px;
+    text-align: center;
+    padding: 4px 0;
+    display: table-cell;
+	vertical-align: middle;
+}
+
+.app-bar .sb-notifications-drawer .sb-notifications-scrollpane .sb-notifications-list>li:first-child .sb-notification-left {
+    top: 0;
+}
+
+.app-bar .sb-notifications-drawer .sb-notifications-scrollpane .sb-notifications-list .sb-notification-heading {
+	margin: 0;
+    font-weight: 500;
+    display: block;
+    overflow: hidden;
+    padding-bottom: 1px;
+}
+
+.app-bar .sb-notifications-drawer .sb-notifications-scrollpane .sb-notifications-list>li:last-child {
+    border-bottom: none;
+}
+/*
+.app-bar .sb-app-launcher::before {
+	content: '';
+	border-left: 10px dashed transparent;
+	border-right: 10px dashed transparent;
+	border-bottom: 10px solid white;
+	position: absolute;
+	top: -9px;
+	left: 50%;
+	margin-left: -5px;
+	z-index: 1;
+}
+*/
+/*
+.app-bar .sb-apps {
+	position: relative;
+	border: 1px solid #ccc;
+    border-color: rgba(0,0,0,.2);
+	box-shadow: 0 2px 10px rgba(0,0,0,.2);
+	-webkit-transition: height .2s ease-in-out;
+	transition: height .2s ease-in-out;
+	min-height: 196px;
+	outline: none;
+	overflow-y: auto;
+	overflow-x: hidden;
+	width: 320px;
+	height: 396px;
+	margin-bottom: 30px;
+}*/
+
+.app-bar .sb-launcher-button {
+	cursor: pointer;
+	margin: 0 auto;
+	position: relative;
+	text-align: left;
+	line-height: normal;
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 5px;
+}
+
+.app-bar .sb-notifications-button {
+	cursor: pointer;
+	margin: 0 auto;
+	position: relative;
+	text-align: left;
+	line-height: normal;
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 5px;
+}
+
+.app-bar .sb-account-button {
+    cursor: pointer;
+	margin: 0 auto;
+	position: relative;
+	text-align: left;
+	line-height: normal;
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 5px;
+}
+
+
+.app-bar .sb-notifications-button .sb-notifications-badge {
+	display: none;
+}
+
+.app-bar .sb-notifications-button.sb-has-notification .sb-notifications-badge {
+	display: block;
+}
+
+.app-bar .sb-notifications-button .sb-notification-not-empty {
+	display: none;
+}
+
+.app-bar .sb-notifications-button.sb-has-notification .sb-notification-empty{
+	display: none;
+}
+
+.app-bar .sb-notifications-button.sb-has-notification .sb-notification-not-empty {
+	display: inline-block;
+}
+
+.app-bar .sb-notifications-button a {
+	outline: none;
+}
+
+.app-bar .sb-hide {
+	display: none;
+	opacity: 0;
+}
+
+.app-bar .sb-show {
+	display: block;
+	opacity: 1;
+	-webkit-animation: app-bar-anim .2s ease-in-out;
+          animation: app-bar-anim .2s ease-in-out;
+}
+
+.app-bar .sb-app-launcher ul {
+	background: #fff;
+	margin: 0;
+	padding: 28px;
+	width: 176px;
+	overflow: hidden;
+	list-style: none;
+}
+
+.app-bar .sb-app-launcher ul li {
+	float: left;
+	/*height: 64px;*/
+	width: 88px;
+	color: black;
+	padding: 5px 0;
+	text-align: center;
+}
+
+
+.app-bar .sb-app-launcher ul li a {
+	display: block;
+	border:1px solid transparent;
+	text-decoration: none;
+	font-size: 13px;
+	padding: 5px;
+	outline: medium none;
+}
+
+.app-bar .sb-app-launcher ul li a img {
+    max-width: 48px;
+    max-height: 48px;
+}
+
+.app-bar .sb-app-launcher ul li a:hover,
+.app-bar .sb-app-launcher ul li a:focus {
+	border: 1px solid #e5e5e5;
+	border-radius: 2px;
+}
+
+.app-bar .sb-app-launcher ul li a span {
+	display: block;
+	line-height: 20px;
+	overflow: hidden;
+	white-space: nowrap;
+	width: 75px;
+	text-overflow: ellipsis;
+	margin: 0px auto;
+}
+
+.app-bar .sb-app-launcher .sb-more {
+	line-height: 40px;
+	text-align: center;
+	display: block;
+	width: 234px;
+	background: #f5f5f5;
+	cursor: pointer;
+	height: 40px;
+	overflow: hidden;
+	position: absolute;
+	text-decoration: none;
+	color: #282828;
+	outline: none;
+}
+
+.app-bar .sb-app-launcher.sb-overflow .sb-more {
+	border-bottom: 1px solid #ebebeb;
+	/*left: 28px;*/
+	width: 178px;
+	height: 0;
+	cursor: default;
+	height: 0;
+	outline: none;
+    margin: 0px auto;
+    position: relative;
+}
+
+.app-bar .sb-app-launcher::-webkit-scrollbar-thumb,
+.app-bar .sb-notifications-drawer .sb-notifications-scrollpane::-webkit-scrollbar-thumb {
+	background-clip: padding-box;
+	background-color: rgba(0,0,0,.3);
+	border: 5px solid transparent;
+	border-radius: 10px;
+	min-height: 20px;
+	min-width: 20px;
+	height: 5px;
+	width: 5px;
+}
+
+.app-bar .sb-app-launcher::-webkit-scrollbar {
+	height: 15px;
+	width: 15px;
+	background: white;
+}
+
+.app-bar .sb-notifications-drawer .sb-notifications-scrollpane::-webkit-scrollbar {
+	height: 15px;
+	width: 15px;
+	background: rgba(0,0,0,0.1);
+}
+
+.app-bar .sb-app-launcher::-webkit-scrollbar-button,
+.app-bar .sb-notifications-drawer .sb-notifications-scrollpane::-webkit-scrollbar-button {
+	height: 0;
+	width: 0;
+}
+
+/* Account */
+
+.app-bar .sb-account-panel {
+	min-width: 220px;
+	height: initial;
+}
+
+.app-bar .sb-account-panel a {
+    color: #404040;
+}
+
+.app-bar .sb-account-info {
+	display: block;
+	margin: 20px;
+	text-align: center;
+}
+
+.app-bar .sb-account-info .sb-user-name {
+	color: #000;
+	font-weight: bold;
+}
+
+.app-bar .sb-account-info>div:first-child {
+	/*-webkit-background-size: 96px 96px;
+	background-size: 96px 96px;*/
+    -webkit-background-size: 96px;
+    background-size: 96px;
+    background-repeat: no-repeat;
+    background-position-x: center;
+	border: none;
+	vertical-align: top;
+	height: 96px;
+	width: 96px;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	overflow: hidden;
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	margin-bottom: 20px;
+	background-image: url(../images/person-icon.jpg);
+}
+
+/*.app-bar .sb-account-panel .sb-actions>div:first-child {
+	text-align: left;
+}
+.app-bar .sb-account-panel .sb-actions>div {
+	display: table-cell;
+	text-align: right;
+}*/
+
+.app-bar .sb-account-panel .sb-actions>div {
+	display: block;
+}
+
+.app-bar .sb-account-panel .sb-actions a {
+	display: table;
+	width: 100%;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	cursor: pointer;
+}
+
+.app-bar .sb-account-panel .sb-actions a>div {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.app-bar .sb-account-panel .sb-actions a>div:first-child {
+	width: 19px;
+	padding-top: 3px;
+	padding-left: 16px;
+}
+
+.app-bar .sb-account-panel .sb-actions a:hover,
+.app-bar .sb-account-panel .sb-actions a:focus {
+	background: #e3e3e3;
+	color: #000;
+}
+
+.app-bar .sb-account-panel .sb-actions a>div:last-child {
+	padding-right: 16px;
+}
+
+
+.app-bar .sb-account-panel .sb-actions {
+	background: #f5f5f5;
+	border-top: 1px solid #ccc;
+	border-color: rgba(0,0,0,.2);
+	padding: 10px 0;
+	width: 100%;
+	/*display: table;*/
+	display: block;
+	text-align: left;
+}
+
+.app-bar .sb-account-panel .sb-actions .material-icons {
+	font-size: 13px;
+}
+
+
+/* Notifications */
+
+
+.app-bar .sb-notifications-badge {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+	font-size: 10px;
+    min-width: 14px;
+    height: 14px;
+    line-height: 14px;
+    padding: 0;
+    font-weight: 600;
+	background-color: #e84b53;
+    color: #FFF;
+	display: inline-block;
+	text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.app-bar .sb-notification-body {
+	/*padding-right: 46px;*/
+	padding-right: 26px;
+	display: table-cell;
+}
+
+.app-bar .sb-notification-controls {
+	position: absolute;
+	top: 0px;
+	right: -2px;
+	height: 16px;
+	padding: 4px 3px 5px;
+	background: #f0f0f0;
+	border: solid #dcdcdc;
+	border-width: 0 0 1px 1px;
+	border-radius: 0 2px;
+}
+
+.app-bar .sb-notification-controls button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 16px;
+	padding: 4px 3px 5px;
+	background: #f0f0f0;
+	border: solid #dcdcdc;
+	border-width: 0 0 1px 1px;
+	border-radius: 0 2px;
+}
+
+
+.app-bar .sb-notification-controls button {
+	background: 0 0;
+	border: none;
+	border-radius: 2px;
+	position: relative;
+	margin: 0;
+	padding-top: 0;
+	padding-right: 2px;
+	padding-left: 2px;
+	padding-bottom: 2px;
+	display: inline-block;
+	overflow: hidden;
+	will-change: box-shadow;
+	transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+	outline: none;
+	cursor: pointer;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	-webkit-tap-highlight-color: transparent;
+   -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+
+
+.app-bar .sb-notification-controls button:hover > .material-icons,
+.app-bar .sb-notification-controls button:focus > .material-icons {
+	color: #000;
+}
+.app-bar .sb-notification-controls .material-icons {
+	color: #bbb;
+	font-size: 14px;
+	line-height: 14px;
+}
+
+/* Login Button   */
+
+.app-bar .sb-personal-info {
+	display: table-cell;
+	vertical-align: middle;
+	padding-left: 10px;
+	padding-right: 5px;
+}
+
+.app-bar .sb-login-button {
+	background: 0 0;
+    border: none;
+    border-radius: 2px;
+    color: #000;
+    position: relative;
+    height: 30px;
+    margin: 0;
+    min-width: 64px;
+    padding: 0 16px;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    overflow: hidden;
+    will-change: box-shadow;
+    transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    line-height: 30px;
+    vertical-align: middle;
+	-webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+}
+
+.app-bar .sb-login-button:focus:not(:active) {
+    background-color: rgba(0,0,0,.12);
+}
+.app-bar .sb-login-button:hover {
+    background-color: rgba(158,158,158,.2);
+}
+
+.app-bar .sb-button-colored {
+    background: #3f51b5;
+    color: #fff;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.app-bar .sb-button-colored :focus:not(:active) {
+    background-color: #3f51b5;
+}
+.app-bar .sb-button-colored:focus:not(:active) {
+    box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);
+	background: #3f51b5;
+}
+.app-bar .sb-button-colored:hover {
+    background-color: #3f51b5;
+}
+.app-bar .sb-button-colored:active {
+	box-shadow: 0 4px 5px 0 rgba(0,0,0,.14),0 1px 10px 0 rgba(0,0,0,.12),0 2px 4px -1px rgba(0,0,0,.2);
+    background-color: #3f51b5;
+}
+
+/* dark skin */
+
+.app-bar.app-bar-dark.app-bar-topbar {
+    background-color: #383C43;
+}
+
+.app-bar.app-bar-dark .sb-launcher-button a,
+.app-bar.app-bar-dark .sb-notifications-button a,
+.app-bar.app-bar-dark .sb-account-button a{
+    color: #fff;
+    background: transparent;
+    outline: medium none;
+}
+
+.app-bar.app-bar-dark .sb-launcher-button a:hover,
+.app-bar.app-bar-dark .sb-launcher-button a:active,
+.app-bar.app-bar-dark .sb-launcher-button a:focus,
+.app-bar.app-bar-dark .sb-notifications-button a:hover,
+.app-bar.app-bar-dark .sb-notifications-button a:active,
+.app-bar.app-bar-dark .sb-notifications-button a:focus,
+.app-bar.app-bar-dark .sb-account-button a:hover,
+.app-bar.app-bar-dark .sb-account-button a:active,
+.app-bar.app-bar-dark .sb-account-button a:focus
+  {
+    color:#fff;
+    background: transparent;
+    outline: medium none;
+}
+
+.app-bar.app-bar-dark .sb-arrow-shadow {
+    border-color: transparent transparent #1D2D44;
+}
+
+.app-bar.app-bar-dark .sb-arrow-back {
+    border-color: transparent transparent #000;
+}
+
+.app-bar.app-bar-dark .sb-app-launcher,
+.app-bar.app-bar-dark .sb-account-panel,
+.app-bar.app-bar-dark .sb-notifications-drawer {
+    background-color: #383C43;
+    color: #fff;
+    box-shadow: 0px 0px 7px #1D2D44;
+}
+
+.app-bar.app-bar-dark .sb-notifications-drawer .sb-notifications-top {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/*.app-bar.app-bar-dark .sb-notifications-drawer .sb-notifications-bottom a:hover,
+.app-bar.app-bar-dark .sb-notifications-drawer .sb-notifications-bottom a:focus {
+    color: #fff;
+}*/
+
+.app-bar.app-bar-dark .sb-notifications-drawer .sb-notifications-bottom a {
+    /*background: rgba(0, 0, 0, 0.7);*/
+    background: #2D3036;
+    color: #fff;
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.app-bar.app-bar-dark .sb-notifications-drawer .sb-notifications-bottom span{
+    color: #fff;
+    opacity: .7;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+}
+
+.app-bar.app-bar-dark .sb-notifications-drawer .sb-notifications-bottom:hover span,
+.app-bar.app-bar-dark .sb-notifications-drawer .sb-notifications-bottom:active span,
+.app-bar.app-bar-dark .sb-notifications-drawer .sb-notifications-bottom:focus span {
+    color: #fff;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+}
+
+.app-bar.app-bar-dark .sb-notifications-drawer .sb-notifications-scrollpane .sb-notifications-list{
+    margin-top: 13px;
+    margin-bottom: 13px;
+}
+
+.app-bar.app-bar-dark .sb-notifications-drawer .sb-notifications-scrollpane .sb-notifications-list>li>a {
+    -webkit-box-shadow: 0px 0px 3px 0px rgba(255, 255, 255, 0.7);
+    background: #FFF none repeat scroll 0% 0%;
+    opacity: .8;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+
+.app-bar.app-bar-dark .sb-notifications-drawer .sb-notifications-scrollpane .sb-notifications-list>li>a:focus,
+.app-bar.app-bar-dark .sb-notifications-drawer .sb-notifications-scrollpane .sb-notifications-list>li>a:hover {
+    background: #FFF none repeat scroll 0% 0%;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+
+.app-bar.app-bar-dark .sb-app-launcher ul {
+    background: #383C43;
+}
+
+.app-bar.app-bar-dark .sb-app-launcher ul li a {
+    color: #fff;
+    opacity: .7;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+}
+.app-bar.app-bar-dark .sb-app-launcher ul li a:hover,
+.app-bar.app-bar-dark .sb-app-launcher ul li a:focus {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+}
+
+.app-bar.app-bar-dark .sb-app-launcher .sb-more {
+    background: #2D3036;
+    color: #fff;
+    border-top: 1px solid rgba(0,0,0,.2);
+}
+
+.app-bar.app-bar-dark .sb-app-launcher .sb-more span{
+    color: #fff;
+    opacity: .7;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+}
+
+.app-bar.app-bar-dark .sb-app-launcher .sb-more:hover span,
+.app-bar.app-bar-dark .sb-app-launcher .sb-more:active span,
+.app-bar.app-bar-dark .sb-app-launcher .sb-more:focus span {
+    color: #fff;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+}
+
+.app-bar.app-bar-dark .sb-app-launcher.sb-overflow .sb-more {
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.app-bar.app-bar-dark .sb-app-launcher::-webkit-scrollbar-thumb,
+.app-bar.app-bar-dark .sb-notifications-drawer .sb-notifications-scrollpane::-webkit-scrollbar-thumb {
+    background-color: rgba(255,255,255,.3);
+}
+
+.app-bar.app-bar-dark .sb-app-launcher::-webkit-scrollbar {
+    background-color: rgba(255,255,255,.3);
+}
+
+.app-bar.app-bar-dark .sb-app-launcher::-webkit-scrollbar {
+    background: transparent;
+}
+
+.app-bar.app-bar-dark .sb-notifications-drawer .sb-notifications-scrollpane::-webkit-scrollbar {
+    background: rgba(255,255,255,0.1);
+}
+
+
+.app-bar.app-bar-dark .sb-account-panel a {
+    color: #e3e3e3;
+}
+
+.app-bar.app-bar-dark .sb-account-panel {
+    color: #e3e3e3;
+}
+.app-bar.app-bar-dark .sb-account-info .sb-user-name {
+    color: #fff;
+}
+
+.app-bar.app-bar-dark .sb-account-info .user-mail {
+    color: #E3E3E3;
+}
+
+.app-bar.app-bar-dark .sb-account-panel .sb-actions {
+    background: #2D3036;
+}
+
+.app-bar.app-bar-dark .sb-account-panel .sb-actions a:hover,
+.app-bar.app-bar-dark .sb-account-panel .sb-actions a:focus
+{
+    background: #444850;
+    color: #fff;
+}
